@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "My Chrome Extension",
+  "version": "1.0.0",
+  "description": "A simple Chrome extension using Vue.js",
+  "permissions": ["tabs", "activeTab","contextMenus"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_icon": "image/2.png",
+    "default_popup": "index.html",
+    "default_title": "My Chrome Extension"
+  },
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js","content.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js","js/vue.js","options.js"]
+    }
+  ],
+  "icons":{ "48":"image/2.png"}
+   
+  
+}
